@@ -88,3 +88,27 @@ variable "ecs_log_group_name" {
   default = "timing-ecs"
   
 }
+variable "app_alb_security_group_name" {
+  default = "timing-alb"
+}
+variable "app_alb_security_group_description" {
+  default = "This is used for Application ALB"
+}
+variable "app_alb_ingress_cidr" {
+  default = [
+    {
+      from_port = "80"
+      to_port = "80"
+      cidr_block = "0.0.0.0/0"
+      description = "Opening 80 to internet"
+    },
+    {
+      from_port   = "443"
+      to_port     = "443"
+      cidr_block  = "0.0.0.0/0"
+      description = "Opening 443 to internet"
+    }
+  ]
+}
+
+
