@@ -13,3 +13,7 @@ output "app_alb_security_group_id" {
     value = local.app_alb_security_group_id
   
 }
+output "app_lb_arn" {
+    value = local.app_lb_arn
+  
+}
