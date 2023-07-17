@@ -17,3 +17,11 @@ output "app_lb_arn" {
     value = local.app_lb_arn
   
 }
+output "private_subnet_ids" {
+    value = local.private_subnet_ids
+  
+}
+output "app_target_group_arns" {
+    value = module.app_alb.target_group_arns
+  
+}

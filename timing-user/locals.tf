@@ -10,6 +10,8 @@ locals {
   ecs_cluster_id = module.ecs_cluster.ecs_cluster_id 
   app_alb_security_group_id = module.app_alb_sg.security_group_id 
   app_lb_arn = module.app_alb.lb_arn
-  private_subnet_ids = module.vpc.private_subnet_ids
+  private_subnet_ids = module.vpc.private_subnet_ids 
+  public_subnet_ids = module.vpc.public_subnet_ids
+  
     
   }
