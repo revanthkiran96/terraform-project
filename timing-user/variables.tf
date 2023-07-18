@@ -96,12 +96,12 @@ variable "app_alb_security_group_description" {
 }
 variable "app_alb_ingress_cidr" {
   default = [
-    {
-      from_port = "80"
-      to_port = "80"
-      cidr_block = "0.0.0.0/0"
-      description = "Opening 80 to internet"
-    },
+    # {
+    #   from_port = "80"
+    #   to_port = "80"
+    #   cidr_block = "0.0.0.0/0"
+    #   description = "Opening 80 to internet"
+    # },
     {
       from_port   = "443"
       to_port     = "443"
@@ -125,5 +125,8 @@ variable "api_alb_record_name" {
   default = "api"
   
 }
-
+variable "zone_id" {
+  default = "Z1030847OUAK25RE7ZEP"
+  
+}
 
