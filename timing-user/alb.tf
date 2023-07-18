@@ -3,7 +3,8 @@ module "app_alb" {
   name                  = var.app_alb_name
   load_balancer_type    = "application"
   vpc_id                = local.vpc_id
-  subnets               = local.private_subnet_ids
+  subnets               = local.public_subnet_ids #temporary
+  #subnets               = local.private_subnet_ids
   security_groups       = [local.app_alb_security_group_id]
   create_security_group = false #we created already
   target_groups = [

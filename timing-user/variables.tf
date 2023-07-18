@@ -117,5 +117,13 @@ variable "app_alb_name" {
 variable "app_alb_tags" {
   default = {}
 }
+variable "zone_name" {
+  default = "revanth.store"
+  
+}
+variable "api_alb_record_name" {
+  default = "api"
+  
+}
 
 
