@@ -14,7 +14,7 @@ resource "aws_ecs_task_definition" "api" {
         
             "essential": true,
             "image": "464333087573.dkr.ecr.us-east-1.amazonaws.com/timing_node_app_backend:latest",
-            "name": "api-ecs",
+            "name": "${local.container_name}",
             "portMappings": [
                 {
                     "containerPort": 3000
@@ -26,4 +26,22 @@ resource "aws_ecs_task_definition" "api" {
         }
     ]
     TASK_DEFINITION
+}
+resource "aws_ecs_service" "api" {
+
+    name = "${local.tags.Name}"
+    cluster = local.ecs_cluster_id
+    task_definition = aws_ecs_task_definition.api.arn
+    desired_count  = 2
+    launch_type = "FARGATE"
+    network_configuration {
+        subnets = local.private_subnet_ids
+        security_groups = [aws_security_group.api_ecs.id]
+    }
+    load_balancer {
+      target_group_arn = local.app_target_group_arns
+      container_name = local.container_name
+      container_port = 3000
+    }
+
 }
