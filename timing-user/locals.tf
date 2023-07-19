@@ -14,5 +14,8 @@ locals {
   public_subnet_ids = module.vpc.public_subnet_ids 
   api_alb_dns_name = module.app_alb.lb_dns_name
   api_alb_zone_id = module.app_alb.lb_zone_id
+  web_alb_security_group_id = module.web_alb_sg.security_group_id
+  web_alb_dns_name = module.web_alb.lb_dns_name
+  web_alb_zone_id = module.web_alb.lb_zone_id
     
   }

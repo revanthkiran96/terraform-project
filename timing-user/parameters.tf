@@ -49,3 +49,13 @@ resource "aws_ssm_parameter" "ecs_cluster_id" {
 
   
 }
+resource "aws_ssm_parameter" "web_alb_security_group_id" {
+  name  = "/timing/vpc/web_alb_security_group_id"
+  type  = "String"
+  value = local.web_alb_security_group_id
+}
+resource "aws_ssm_parameter" "web_target_group_arn" {
+  name  = "/timing/ec2/web_target_group_arns"
+  type  = "StringList"
+  value = join(",", module.web_alb.target_group_arns)
+}

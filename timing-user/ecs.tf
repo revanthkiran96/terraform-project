@@ -13,3 +13,11 @@ resource "aws_ecr_repository" "app" {
     scan_on_push = true
   }
 }
+resource "aws_ecr_repository" "web" {
+  name                 = "timing_node_web_frontend"
+  image_tag_mutability = "MUTABLE"
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+}
