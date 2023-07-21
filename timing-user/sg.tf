@@ -21,9 +21,9 @@ module "web_alb_sg" {
   vpc_id                     = local.vpc_id
   security_group_name        = var.web_alb_security_group_name
   security_group_description = var.web_alb_security_group_description
-  tags = merge(
+  tags                       = merge(
     var.tags,
-    { Name = "timing-web" }
+    {Name = "timing-web"}
   )
-  ingress_cidr = var.web_alb_ingress_cidr
+  ingress_cidr               = var.web_alb_ingress_cidr
 }

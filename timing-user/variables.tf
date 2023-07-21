@@ -96,17 +96,18 @@ variable "app_alb_security_group_description" {
 }
 variable "app_alb_ingress_cidr" {
   default = [
-    # {
-    #   from_port = "80"
-    #   to_port = "80"
-    #   cidr_block = "0.0.0.0/0"
-    #   description = "Opening 80 to internet"
-    # },
+   
     {
       from_port   = "443"
       to_port     = "443"
       cidr_block  = "0.0.0.0/0"
       description = "Opening 443 to internet"
+    },
+    {
+      from_port   = "80"
+      to_port     = "80"
+      cidr_block  = "0.0.0.0/0"
+      description = "Opening 80 to internet"
     }
   ]
 }
@@ -131,26 +132,37 @@ variable "zone_id" {
 }
 variable "web_alb_security_group_name" {
   default = "timing-web"
+  
 }
 variable "web_alb_security_group_description" {
-  default = "This is used for web Application ALB"
+  default = "this is used for web alb"
+  
 }
 variable "web_alb_ingress_cidr" {
   default = [
-
+   
     {
       from_port   = "443"
       to_port     = "443"
       cidr_block  = "0.0.0.0/0"
       description = "Opening 443 to internet"
+    },
+    {
+      from_port   = "80"
+      to_port     = "80"
+      cidr_block  = "0.0.0.0/0"
+      description = "Opening 80 to internet"
     }
-    
   ]
 }
+  
 variable "web_alb_name" {
   default = "timing-web"
 }
 variable "web_alb_record_name" {
   default = "web"
+  
 }
-
+variable "cdn_record_name" {
+  default = "cdn"
+}

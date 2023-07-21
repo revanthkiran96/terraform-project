@@ -17,5 +17,6 @@ locals {
   web_alb_security_group_id = module.web_alb_sg.security_group_id
   web_alb_dns_name = module.web_alb.lb_dns_name
   web_alb_zone_id = module.web_alb.lb_zone_id
+
     
   }

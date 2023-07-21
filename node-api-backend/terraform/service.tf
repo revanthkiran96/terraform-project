@@ -13,7 +13,7 @@ resource "aws_ecs_task_definition" "api" {
         {
         
             "essential": true,
-            "image": "464333087573.dkr.ecr.us-east-1.amazonaws.com/timing_node_app_backend:latest",
+            "image": "464333087573.dkr.ecr.us-east-1.amazonaws.com/timing_node_app_backend",
             "name": "${local.container_name}",
             "portMappings": [
                 {
